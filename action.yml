@@ -1,4 +1,4 @@
-name: 'argocd-sync'
+name: 'argocd-app-sync'
 description: 'A GitHub action that syncs ArgoCD applications'
 author: 'OpsVerse (https://opsverse.io)'
 
