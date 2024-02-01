@@ -1,9 +1,11 @@
-name: "ArgoCD Actions"
-description: "Operate your ArgoCD applications from GitHub"
-author: "opsverse"
+name: 'argocd-sync'
+description: 'A GitHub action that syncs ArgoCD applications'
+author: 'OpsVerse (https://opsverse.io)'
+
 branding:
-  icon: activity
-  color: yellow
+  icon: 'activity'
+  color: 'green'
+
 inputs:
   address:
     description: "ArgoCD server address"
