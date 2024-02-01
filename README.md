@@ -10,7 +10,7 @@ A GitHub action that syncs ArgoCD applications.
 
 ### Example workflow
 
-This example replaces syncs ArgoCD application.
+This example syncs an ArgoCD application.
 
 ```yaml
 name: My Workflow
@@ -23,7 +23,7 @@ jobs:
       - name: Sync ArgoCD Application
         uses: OpsVerseIO/argocd-sync@0.1.0
         with:
-          address: "argocd.example.com"
+          address: ${{ secrets.ARGOCD_SERVER }}
           token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
           appName: "my-example-app"
@@ -55,7 +55,7 @@ jobs:
       - name: Sync ArgoCD Application
         uses: OpsVerseIO/argocd-sync@0.1.0
         with:
-          address: "vault.example.com"
+          address: ${{ secrets.ARGOCD_SERVER }}
           token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
           appName: "my-example-app"
