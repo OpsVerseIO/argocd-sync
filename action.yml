@@ -38,6 +38,6 @@ runs:
           --application=${{ inputs.appName }} \
           --token=${{ inputs.token }} \
           --address=${{ inputs.address }} \
-          --disableTlsVerification="false" \
+          --disableTlsVerification="true" \
           --logLevel=debug
       shell: sh
