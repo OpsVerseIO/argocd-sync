@@ -27,5 +27,11 @@ func Root() *cobra.Command {
 		log.Fatalf("Lethal damage: %s\n\n", err)
 	}
 
+	cmd.PersistentFlags().String("disableTlsVerification", "", "Disable TLS verification")
+
+	if err := cmd.MarkPersistentFlagRequired("disableTlsVerification"); err != nil {
+		log.Fatalf("Lethal damage: %s\n\n", err)
+	}
+
 	return cmd
 }

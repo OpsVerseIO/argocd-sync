@@ -3,14 +3,16 @@ package argocd
 import (
 	"context"
 	"io"
+	"log"
 
 	argocdclient "github.com/argoproj/argo-cd/v2/pkg/apiclient"
 	applicationpkg "github.com/argoproj/argo-cd/v2/pkg/apiclient/application"
 	argoio "github.com/argoproj/argo-cd/v2/util/io"
 )
 
-//nolint:lll // go generate is ugly.
 // Interface is an interface for API.
+//
+//nolint:lll // go generate is ugly.
 type Interface interface {
 	Sync(appName string) error
 }
@@ -23,8 +25,9 @@ type API struct {
 
 // APIOptions is options for API.
 type APIOptions struct {
-	Address string
-	Token   string
+	Address                string
+	Token                  string
+	DisableTlsVerification bool
 }
 
 // NewAPI creates new API.
@@ -33,9 +36,13 @@ func NewAPI(options *APIOptions) API {
 		ServerAddr: options.Address,
 		AuthToken:  options.Token,
 		GRPCWeb:    true,
+		Insecure:   options.DisableTlsVerification,
 	}
 
 	connection, client := argocdclient.NewClientOrDie(&clientOptions).NewApplicationClientOrDie()
+	if options.DisableTlsVerification {
+		log.Println("Skip TLS Validation option is enabled")
+	}
 
 	return API{client: client, connection: connection}
 }

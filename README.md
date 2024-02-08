@@ -25,16 +25,18 @@ jobs:
           token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
           appName: "my-example-app"
+          disableTlsVerification: "false" # Default is false. Only enable this if ArgoCD doesn't have TLS / has self signed certificate / you see any sort of x509 errors
 ```
 
 ### Inputs
 
-| Input     | Description                            |
-|-----------|----------------------------------------|
-| `address` | ArgoCD server address.                 |
-| `token`   | ArgoCD Token.                          |
-| `action`  | ArgoCD Action i.e. sync.               |
-| `appName` | Application name to execute action on. |
+| Input                    | Description                            |
+|--------------------------|----------------------------------------|
+| `address`                | ArgoCD server address.                 |
+| `token`                  | ArgoCD Token.                          |
+| `action`                 | ArgoCD Action i.e. sync.               |
+| `appName`                | Application name to execute action on. |
+| `disableTlsVerification` | Skip TLS validation.                   |
 
 ## Examples
 
@@ -57,4 +59,5 @@ jobs:
           token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
           appName: "my-example-app"
+          disableTlsVerification: "false" # Default is false. Only enable this if ArgoCD doesn't have TLS / has self signed certificate / you see any sort of x509 errors
 ```

@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"strconv"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
@@ -17,10 +19,13 @@ func Sync() *cobra.Command {
 			address, _ := cmd.Flags().GetString("address")
 			token, _ := cmd.Flags().GetString("token")
 			application, _ := cmd.Flags().GetString("application")
+			disableTlsVerification, _ := cmd.Flags().GetString("disableTlsVerification")
+			disableTlsVerificationBool, _ := strconv.ParseBool(disableTlsVerification)
 
 			api := argocd.NewAPI(&argocd.APIOptions{
-				Address: address,
-				Token:   token,
+				Address:                address,
+				Token:                  token,
+				DisableTlsVerification: disableTlsVerificationBool,
 			})
 
 			controller := ctrl.NewController(api)
