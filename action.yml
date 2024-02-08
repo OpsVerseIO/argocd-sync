@@ -39,4 +39,5 @@ runs:
           --token=${{ inputs.token }} \
           --address=${{ inputs.address }} \
           --logLevel=debug
+          --insecure=true
       shell: sh
