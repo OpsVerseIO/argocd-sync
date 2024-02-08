@@ -25,6 +25,7 @@ type API struct {
 type APIOptions struct {
 	Address string
 	Token   string
+	DisableTlsVerification bool
 }
 
 // NewAPI creates new API.
@@ -33,6 +34,7 @@ func NewAPI(options *APIOptions) API {
 		ServerAddr: options.Address,
 		AuthToken:  options.Token,
 		GRPCWeb:    true,
+		Insecure: options.DisableTlsVerification,
 	}
 
 	connection, client := argocdclient.NewClientOrDie(&clientOptions).NewApplicationClientOrDie()
