@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Sync ArgoCD Application
-        uses: OpsVerseIO/argocd-sync@0.1.0
+        uses: OpsVerseIO/argocd-sync@0.2.0
         with:
           address: ${{ secrets.ARGOCD_SERVER }}
           token: ${{ secrets.ARGOCD_TOKEN }}
@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Sync ArgoCD Application
-        uses: OpsVerseIO/argocd-sync@0.1.0
+        uses: OpsVerseIO/argocd-sync@0.2.0
         with:
           address: ${{ secrets.ARGOCD_SERVER }}
           token: ${{ secrets.ARGOCD_TOKEN }}
