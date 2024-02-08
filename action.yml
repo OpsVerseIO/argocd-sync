@@ -22,7 +22,11 @@ inputs:
   image:
     description: "Image tag for the binary"
     required: false
-    default: "latest"
+    default: "latest"  
+  disableTlsVerification:
+    description: "Disable TLS Verification"
+    required: true
+    default: "false"
 
 runs:
   using: "composite"
