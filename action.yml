@@ -33,7 +33,7 @@ runs:
   steps:
     - name: Run argocd-actions CLI from the image for GH image registry
       run: |
-        docker run --rm -i ghcr.io/omegion/argocd-actions:${{ inputs.image }} \
+        docker run --rm -i registry.devopsnow.io/public/argocd-sync-action:${{ inputs.image }} \
           ${{ inputs.action }} \
           --application=${{ inputs.appName }} \
           --token=${{ inputs.token }} \
