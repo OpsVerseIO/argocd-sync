@@ -19,4 +19,4 @@ jobs:
           action: sync
           appName: ${{ secrets.ARGOCD_APP_NAME }}
           image: latest
-          # disableTlsVerification: "false"
+          disableTlsVerification: "false"
