@@ -14,9 +14,9 @@ jobs:
         id: selftest
         uses: ./
         with:
-          address: ${{ secrets.ARGOCD_ADDR }}
-          token: ${{ steps.secrets.outputs.ARGOCD_TOKEN }}
+          address: ${{ secrets.ARGOCD_SERVER }}
+          token: ${{ secrets.ARGOCD_TOKEN }}
           action: sync
-          appName: argocd-apps
+          appName: ${{ secrets.ARGOCD_APP_NAME }}
           image: latest
           disableTlsVerification: "true"
