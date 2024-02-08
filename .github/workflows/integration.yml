@@ -2,7 +2,7 @@ name: Integration Test
 
 on:
   push:
-    branches: [ enhancement/skip-tls-verification ]
+    branches: [ main ]
 
 jobs:
   build:
