@@ -23,10 +23,10 @@ inputs:
     description: "Image tag for the binary"
     required: false
     default: "latest"  
-  disableTlsVerification:
-    description: "Disable TLS Verification"
-    required: true
-    default: "false"
+  # disableTlsVerification:
+  #   description: "Disable TLS Verification"
+  #   required: true
+  #   default: "false"
 
 runs:
   using: "composite"
@@ -38,6 +38,5 @@ runs:
           --application=${{ inputs.appName }} \
           --token=${{ inputs.token }} \
           --address=${{ inputs.address }} \
-          --disableTlsVerification=${{disableTlsVerification}} \
           --logLevel=debug
       shell: sh
